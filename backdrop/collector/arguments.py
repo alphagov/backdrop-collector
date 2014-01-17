@@ -33,6 +33,9 @@ def parse_args(name="", args=None):
     parser.add_argument('-e', '--end', dest='end_at',
                         type=parse_date,
                         help='Date to end collection')
+    parser.add_argument('-d', '--dry-run', dest='dry_run',
+                        action='store_true',
+                        help='Dry run, print documents to stdout rather than send to backdrop')
     args = parser.parse_args(args)
 
     return args

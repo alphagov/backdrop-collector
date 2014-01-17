@@ -26,7 +26,7 @@ def uncaught_exception_handler(*exc_info):
     logging.error("Unhandled exception: %s", text)
 
 
-def set_up_logging(app_name, log_level, logfile_path):
+def set_up_logging(app_name, log_level, logfile_path, dry_run):
     sys.excepthook = uncaught_exception_handler
     logger = logging.getLogger()
     logger.setLevel(log_level)
@@ -34,4 +34,6 @@ def set_up_logging(app_name, log_level, logfile_path):
         os.path.join(logfile_path, 'collector.log')))
     logger.addHandler(get_json_log_handler(
         os.path.join(logfile_path, 'collector.log.json'), app_name))
+    if dry_run:
+        logger.addHandler(logging.StreamHandler(sys.stdout))
     logger.info("{0} logging started".format(app_name))
