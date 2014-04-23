@@ -14,8 +14,8 @@ class JsonEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 
-class Bucket(object):
-    """Client for writing to a backdrop bucket"""
+class DataSet(object):
+    """Client for writing to a backdrop data_set"""
 
     def __init__(self, url, token):
         self.url = url
