@@ -24,7 +24,7 @@ def parse_args(name="", args=None):
                         help='JSON file containing details '
                              'about the query to make'
                              'against the source API '
-                             'and the target bucket and'
+                             'and the target data-set and'
                              'bearer token for Backdrop',
                         required=True)
     parser.add_argument('-s', '--start', dest='start_at',
